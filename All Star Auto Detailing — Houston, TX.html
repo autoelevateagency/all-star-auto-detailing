@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>All Star Auto Detailing — Houston, TX</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,300..900&family=Archivo+Narrow:wght@500&display=swap">
+<style>
+:root{--ob:#0B0C0D;--gr:#17191A;--bone:#F2F0EB;--stone:#D9D6CF;--ti:#A7A7A2;--w:#fff;--f:'Archivo','Helvetica Neue',Arial,sans-serif;--pad:clamp(20px,5vw,72px);color-scheme:light;box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--ob)}
+body{font-family:var(--f);background:var(--ob);color:var(--w);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500}
+.disp{font-stretch:125%;font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:-.02em}
+section{position:relative;padding:clamp(90px,14vw,200px) var(--pad)}
+.grain::after,.grain>.gn{content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;mix-blend-mode:overlay;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* reveals */
+.m{display:block;overflow:hidden;padding-bottom:.06em}.m>span{display:block;transform:translateY(105%);transition:transform 1.2s cubic-bezier(.2,.7,.1,1)}
+.in .m>span,.m.in>span{transform:none}.m:nth-child(2)>span{transition-delay:.1s}.m:nth-child(3)>span{transition-delay:.2s}.m:nth-child(4)>span{transition-delay:.3s}
+.r{opacity:0;transform:translateY(28px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.2,.7,.1,1)}.r.in{opacity:1;transform:none}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:calc(22px + env(safe-area-inset-top,0px)) var(--pad) 22px;mix-blend-mode:difference;color:#fff}
+.logo{display:flex;align-items:center;gap:12px;font-stretch:125%;font-weight:800;font-size:13px;letter-spacing:.14em;line-height:1}
+.logo svg{width:30px;height:24px}
+.links{display:flex;gap:34px}.links a,.ncta{font-size:11px;letter-spacing:.24em;font-weight:500;position:relative}
+.links a::after,.ncta::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:100%;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.2,.7,.1,1)}
+.links a:hover::after,.ncta:hover::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:0;color:#fff;font:500 11px var(--f);letter-spacing:.24em;cursor:pointer}
+.menu{position:fixed;inset:0;z-index:40;background:var(--ob);display:flex;flex-direction:column;justify-content:center;padding:var(--pad);gap:6px;clip-path:polygon(0 0,100% 0,100% 0,0 0);transition:clip-path .9s cubic-bezier(.7,0,.2,1)}
+.menu.open{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}.menu a{font-size:11vw;font-stretch:125%;font-weight:800;text-transform:uppercase;line-height:1.05}
+/* hero */
+.hero{min-height:100svh;background:var(--ob);padding-top:0;display:flex;align-items:flex-end;overflow:hidden}
+.car{position:absolute;inset:0;background:radial-gradient(60% 50% at 70% 62%,#2b2e30 0,transparent 70%),linear-gradient(180deg,#0B0C0D,#101213)}
+.slash{position:absolute;top:-10%;right:6%;width:46vw;height:130%;transform:skewX(-18deg);background:linear-gradient(100deg,#1a1c1d 0,#2e3133 38%,#0f1011 39%,#0B0C0D 100%);border-left:1px solid rgba(255,255,255,.12)}
+.slash::before{content:"";position:absolute;left:30%;top:0;bottom:0;width:1px;background:linear-gradient(transparent,rgba(255,255,255,.5),transparent);animation:sweep 9s ease-in-out infinite}
+@keyframes sweep{0%,100%{transform:translateX(-80px);opacity:.2}50%{transform:translateX(160px);opacity:.9}}
+.body{position:absolute;right:-4%;bottom:14%;width:68vw;max-width:1100px;height:26vw;max-height:420px}
+.hero .in-c{position:relative;z-index:2;width:100%;padding:0 var(--pad) clamp(40px,7vw,90px)}
+.hero h1{font-size:clamp(44px,9.6vw,168px);margin:26px 0 30px}
+.hero p{max-width:420px;font-size:15px;line-height:1.7;color:var(--ti)}
+.row{display:flex;gap:36px;align-items:center;flex-wrap:wrap;margin-top:38px}
+.btn{display:inline-block;padding:20px 30px;background:var(--w);color:var(--ob);font-size:11px;letter-spacing:.26em;font-weight:600;transition:background .5s,color .5s,padding .5s}
+.btn:hover{background:var(--ti);padding-right:42px}.sec{font-size:11px;letter-spacing:.26em;border-bottom:1px solid currentColor;padding-bottom:6px}
+.dline{position:absolute;left:var(--pad);bottom:0;width:1px;height:90px;background:linear-gradient(var(--ti),transparent)}
+/* services */
+.svc{background:var(--bone);color:var(--ob)}.svc h2{font-size:clamp(44px,9vw,150px);margin:22px 0 clamp(50px,8vw,110px)}
+.s{display:grid;grid-template-columns:90px 1fr minmax(0,320px);align-items:baseline;gap:20px;padding:clamp(22px,3vw,40px) 0;border-top:1px solid rgba(11,12,13,.2);transition:padding .6s cubic-bezier(.2,.7,.1,1),color .4s;cursor:default}
+.s:last-of-type{border-bottom:1px solid rgba(11,12,13,.2)}.s b{font-weight:500;font-size:12px;letter-spacing:.2em}
+.s h3{font-stretch:125%;font-weight:700;text-transform:uppercase;font-size:clamp(26px,5vw,76px);line-height:1;letter-spacing:-.02em;transition:transform .7s cubic-bezier(.2,.7,.1,1)}
+.s p{font-size:14px;line-height:1.5;color:#55575a;opacity:.9}.s:hover h3{transform:translateX(24px) skewX(-6deg)}.s:hover{padding-left:6px}
+.peek{position:fixed;z-index:30;width:min(34vw,460px);aspect-ratio:4/5;pointer-events:none;opacity:0;transform:scale(.92);transition:opacity .5s,transform .6s cubic-bezier(.2,.7,.1,1);clip-path:polygon(14% 0,100% 0,86% 100%,0 100%);left:0;top:0;will-change:left,top}
+.peek.on{opacity:1;transform:scale(1)}
+/* paint visuals */
+.p{position:relative;overflow:hidden;background:#111}.p>i{position:absolute;inset:-12% 0;display:block;transition:transform 1.4s cubic-bezier(.2,.7,.1,1)}.p:hover>i{transform:scale(1.06) translateY(-1%)}
+.p1>i,.v1{background:linear-gradient(115deg,#050505 0,#1b1d1f 30%,#d9d6cf 46%,#2a2c2e 52%,#0b0c0d 70%)}
+.p2>i,.v2{background:radial-gradient(circle at 30% 30%,#6c6f70 0,#202223 30%,#080909 70%),#0b0c0d}
+.p3>i,.v3{background:repeating-radial-gradient(circle at 50% 120%,#0b0c0d 0 6px,#2b2d2f 7px 8px,#0b0c0d 9px 22px),#0b0c0d}
+.p4>i,.v4{background:radial-gradient(circle at 20% 25%,rgba(255,255,255,.55) 0 2px,transparent 3px),radial-gradient(circle at 55% 40%,rgba(255,255,255,.5) 0 3px,transparent 4px),radial-gradient(circle at 75% 70%,rgba(255,255,255,.45) 0 2px,transparent 3px),linear-gradient(160deg,#1c1e20,#050606)}
+.p5>i,.v5{background:linear-gradient(75deg,#17191A 0,#3a3a37 40%,#a7a7a2 50%,#2a2a28 60%,#0b0c0d)}
+.p6>i,.v6{background:linear-gradient(180deg,#1f1b17 0,#3b342c 45%,#14110e 46%,#0b0a09)}
+.p7>i,.v7{background:conic-gradient(from 200deg at 60% 60%,#0b0c0d,#4a4c4e,#0b0c0d 30%,#d9d6cf 45%,#0b0c0d 60%)}
+.p8>i,.v8{background:linear-gradient(120deg,#0d0e0f,#26282a 35%,#8d8e8a 50%,#1a1c1d 65%,#0b0c0d)}
+.p::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.08) 50%,transparent 60%)}
+/* gallery */
+.gal{background:var(--ob);padding-left:0;padding-right:0}.gal h2{font-size:clamp(40px,8vw,130px);padding:0 var(--pad);margin:22px 0 clamp(60px,9vw,130px)}.gal .lbl{padding:0 var(--pad);color:var(--ti)}
+.g{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(10px,2vw,28px);padding:0 var(--pad);align-items:start}
+.g .p .meta{position:absolute;left:16px;bottom:14px;z-index:2;font-size:10px;letter-spacing:.24em;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:.6s}.g .p:hover .meta{opacity:1;transform:none}
+.g1{grid-column:1/13;aspect-ratio:21/8}.g2{grid-column:1/6;aspect-ratio:4/5;margin-top:4vw}.g3{grid-column:7/13;aspect-ratio:16/10}.g4{grid-column:3/7;aspect-ratio:1;margin-top:-6vw}
+.g5{grid-column:8/12;aspect-ratio:3/4;margin-top:5vw}.g6{grid-column:1/8;aspect-ratio:16/9}.g7{grid-column:9/13;aspect-ratio:3/5;margin-top:-8vw}
+.gnote{padding:30px var(--pad) 0;font-size:11px;letter-spacing:.2em;color:var(--ti)}
+/* testimonial */
+.tes{background:var(--bone);color:var(--ob);min-height:90vh;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.tes::before{content:"";position:absolute;right:8%;top:-10%;width:1px;height:130%;background:rgba(11,12,13,.2);transform:skewX(-18deg)}
+.q{font-size:clamp(34px,7vw,118px);margin:40px 0;max-width:15ch;transition:opacity .6s,transform .6s}.q.out{opacity:0;transform:translateX(-30px)}
+.who{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}.who b{display:block;font-size:13px;letter-spacing:.2em;margin-bottom:6px}.who span{font-size:12px;letter-spacing:.2em;color:#66686a}
+.cnt{display:flex;gap:22px;align-items:center;font-size:13px;letter-spacing:.2em}.cnt button{background:none;border:1px solid var(--ob);width:48px;height:48px;font-size:16px;cursor:pointer;transition:.4s}.cnt button:hover{background:var(--ob);color:var(--bone)}
+/* about */
+.ab{background:var(--gr);display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center}
+.ab .p{aspect-ratio:4/5;clip-path:polygon(0 0,100% 0,100% 88%,86% 100%,0 100%)}.ab h2{font-size:clamp(38px,6.4vw,104px);margin:22px 0 36px}.ab p{max-width:460px;line-height:1.8;color:#c6c5c0;font-size:15px}
+.ab .lbl{color:var(--ti)}
+/* process */
+.pr{background:var(--ob);padding-bottom:clamp(90px,12vw,170px)}.pr h2{font-size:clamp(34px,6vw,96px);margin:20px 0 70px}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid rgba(255,255,255,.2)}
+.st{padding:28px 18px 10px 0;position:relative;border-left:1px solid rgba(255,255,255,.12);padding-left:18px;transition:background .6s}.st:first-child{border-left:0;padding-left:0}
+.st:hover{background:linear-gradient(180deg,rgba(255,255,255,.04),transparent)}
+.st b{display:block;font-stretch:125%;font-weight:800;font-size:clamp(54px,7vw,120px);line-height:1;color:transparent;-webkit-text-stroke:1px #6d6e6a;transition:color .6s}.st:hover b{color:#fff}
+.st span{display:block;margin-top:22px;font-size:12px;letter-spacing:.22em;font-weight:500}
+/* cta */
+.cta{background:var(--stone);color:var(--ob);overflow:hidden}.cta::before{content:"";position:absolute;left:-10%;right:-10%;bottom:0;height:46%;background:var(--ti);transform:skewY(-6deg);transform-origin:bottom left;opacity:.55}
+.cta h2{position:relative;font-size:clamp(46px,12vw,210px)}.cta p{position:relative;margin:38px 0 34px;font-size:16px}.cta .btn{position:relative;background:var(--ob);color:var(--w)}.cta .btn:hover{background:#333}
+/* contact */
+.ct{background:var(--bone);color:var(--ob);display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px,7vw,120px)}
+.ct h2{font-size:clamp(36px,6.4vw,100px);margin:22px 0 50px}.dl{border-top:1px solid rgba(11,12,13,.2);padding:20px 0;display:grid;grid-template-columns:130px 1fr;gap:10px;font-size:15px;line-height:1.6}.dl .lbl{color:#6a6c6e;padding-top:3px}
+.qf{align-self:end;border:1px solid rgba(11,12,13,.25);padding:clamp(22px,3vw,44px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}.chips button{font:500 11px var(--f);letter-spacing:.14em;text-transform:uppercase;padding:11px 14px;border:1px solid rgba(11,12,13,.3);background:none;cursor:pointer;transition:.3s}
+.chips button.on{background:var(--ob);color:var(--bone);border-color:var(--ob)}
+.qf input{width:100%;border:0;border-bottom:1px solid var(--ob);background:none;padding:12px 0;font:400 16px var(--f);outline:none;margin:14px 0 30px}
+.qf .btn{background:var(--ob);color:var(--w);border:0;cursor:pointer;width:100%;text-align:left}.qf small{display:block;margin-top:14px;color:#6a6c6e;font-size:12px;line-height:1.5}
+/* footer */
+footer{background:var(--ob);padding:clamp(70px,9vw,130px) var(--pad) calc(34px + env(safe-area-inset-bottom,0px));position:relative;overflow:hidden}
+footer .big{font-size:clamp(40px,11.5vw,200px);margin-bottom:60px}footer .big em{font-style:normal;color:#3c3e40}
+.fr{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.15);padding-top:28px}.fr nav{all:unset}
+.fl{display:flex;gap:26px;flex-wrap:wrap}.fl a,.fr>a{font-size:11px;letter-spacing:.24em;color:var(--ti);transition:color .3s}.fl a:hover,.fr>a:hover{color:#fff}
+/* responsive */
+@media(max-width:900px){
+.links,.ncta{display:none}.burger{display:block}
+.s{grid-template-columns:44px 1fr}.s p{grid-column:2}.peek{display:none}
+.slash{right:-18%;width:70vw}.body{width:120vw;right:-30%;bottom:36%;height:40vw}.hero .in-c{padding-bottom:50px}.hero h1{font-size:15.5vw}
+.g1{grid-column:1/13;aspect-ratio:4/3}.g2{grid-column:1/9;aspect-ratio:4/5;margin:0}.g3{grid-column:1/13}.g4{grid-column:5/13;margin:0}.g5{grid-column:1/8;margin:0}.g6{grid-column:1/13;aspect-ratio:4/3}.g7{grid-column:6/13;margin:0;aspect-ratio:3/4}
+.ab,.ct{grid-template-columns:1fr}.ab .p{aspect-ratio:4/3}
+.steps{grid-template-columns:1fr}.st{border-left:0;padding:26px 0;border-bottom:1px solid rgba(255,255,255,.15);display:grid;grid-template-columns:110px 1fr;align-items:center}.st span{margin:0}.st b{font-size:60px}
+.dl{grid-template-columns:100px 1fr}.q{max-width:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.m>span,.r{transform:none;opacity:1}}
+</style></head><body>
+
+<nav>
+<a href="#top" class="logo" aria-label="All Star Auto Detailing"><svg viewBox="0 0 30 24"><path d="M8 24 L22 0 H30 L16 24Z M0 24 L4 17 H11 L7 24Z" fill="currentColor"/></svg>ALL STAR</a>
+<div class="links"><a href="#top">HOME</a><a href="#services">SERVICES</a><a href="#gallery">GALLERY</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></div>
+<a class="ncta" href="#contact">DM FOR A FREE QUOTE →</a>
+<button class="burger" id="bg">MENU</button>
+</nav>
+<div class="menu" id="mn"><a href="#top">Home</a><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#about">About</a><a href="#contact">Contact</a><a href="#contact" class="lbl" style="font-size:12px;margin-top:30px;font-weight:600">DM FOR A FREE QUOTE →</a></div>
+
+<header class="hero grain" id="top">
+<div class="car"></div><div class="slash"></div>
+<svg class="body" viewBox="0 0 1100 300" fill="none" aria-hidden="true"><defs><linearGradient id="bl" x1="0" x2="1"><stop offset="0" stop-color="#0b0c0d"/><stop offset=".45" stop-color="#d9d6cf" stop-opacity=".9"/><stop offset="1" stop-color="#0b0c0d"/></linearGradient><linearGradient id="bf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2d2f"/><stop offset="1" stop-color="#070808"/></linearGradient></defs>
+<path d="M20 230 C60 150 230 120 380 100 C470 40 640 30 760 70 C880 110 1020 140 1085 215 L1085 240 L20 240Z" fill="url(#bf)"/>
+<path d="M60 170 C240 120 520 90 1040 190" stroke="url(#bl)" stroke-width="2"/><path d="M380 100 C500 70 680 62 760 70" stroke="url(#bl)" stroke-width="1.5" opacity=".7"/>
+<circle cx="260" cy="236" r="52" fill="#050505" stroke="#3a3c3e"/><circle cx="860" cy="236" r="52" fill="#050505" stroke="#3a3c3e"/></svg>
+<div class="in-c in">
+<div class="lbl r" style="color:var(--ti)">ALL STAR AUTO DETAILING <span style="margin:0 10px">/</span> HOUSTON, TX</div>
+<h1 class="disp"><span class="m"><span>Precision</span></span><span class="m"><span>in every</span></span><span class="m"><span>reflection.</span></span></h1>
+<p class="r">Premium automotive detailing focused on restoring, protecting and refining every surface of your vehicle.</p>
+<div class="row r"><a class="btn" href="#contact">DM FOR YOUR FREE QUOTE →</a><a class="sec" href="#gallery">EXPLORE OUR WORK ↓</a></div>
+</div><div class="dline"></div><div class="gn"></div>
+</header>
+
+<section class="svc" id="services">
+<div class="lbl r">THE CRAFT</div>
+<h2 class="disp"><span class="m"><span>Detailing,</span></span><span class="m"><span>refined.</span></span></h2>
+<div id="sv">
+<div class="s r" data-v="v1"><b>01</b><h3>Paint Correction</h3><p>Restore depth, clarity and gloss.</p></div>
+<div class="s r" data-v="v2"><b>02</b><h3>Ceramic Coating</h3><p>Long-lasting protection with a refined finish.</p></div>
+<div class="s r" data-v="v3"><b>03</b><h3>Auto Detailing</h3><p>A meticulous clean from exterior to interior.</p></div>
+<div class="s r" data-v="v4"><b>04</b><h3>Polishing</h3><p>Bring back clarity, gloss and surface refinement.</p></div>
+<div class="s r" data-v="v5"><b>05</b><h3>Waxing</h3><p>Enhance gloss while adding a protective finish.</p></div>
+<div class="s r" data-v="v6"><b>06</b><h3>Stain Removal</h3><p>Deep interior care for a cleaner, fresher cabin.</p></div>
+<div class="s r" data-v="v7"><b>07</b><h3>And much more</h3><p>Ask us about your vehicle.</p></div>
+</div>
+<div class="peek" id="pk"></div>
+</section>
+
+<section class="gal" id="gallery">
+<div class="lbl r">SELECTED FINISHES</div>
+<h2 class="disp"><span class="m"><span>The finish</span></span><span class="m"><span>speaks for itself.</span></span></h2>
+<div class="g">
+<div class="p p1 g1" data-s="-.05"><i></i><span class="meta">Reflective paint — Full width</span></div>
+<div class="p p2 g2" data-s=".06"><i></i><span class="meta">Detail — Close-up</span></div>
+<div class="p p3 g3" data-s="-.04"><i></i><span class="meta">Wheel detail</span></div>
+<div class="p p4 g4" data-s=".08"><i></i><span class="meta">Water beading</span></div>
+<div class="p p6 g5" data-s="-.06"><i></i><span class="meta">Interior detail</span></div>
+<div class="p p5 g6" data-s=".04"><i></i><span class="meta">Polishing process</span></div>
+<div class="p p7 g7" data-s="-.08"><i></i><span class="meta">Surface refinement</span></div>
+</div>
+<div class="gnote">PLACEHOLDER VISUALS — REPLACE WITH ALL STAR JOB PHOTOGRAPHY.</div>
+</section>
+
+<section class="tes" id="clients">
+<div><div class="lbl r">CLIENT EXPERIENCE</div>
+<h2 class="disp q" id="qt">“The finish was absolutely flawless.”</h2></div>
+<div class="who"><div><b id="qn">— CLIENT NAME</b><span id="qv">VEHICLE MODEL</span></div>
+<div class="cnt"><button id="pv" aria-label="Previous">←</button><span id="ci">01 / 03</span><button id="nx" aria-label="Next">→</button></div></div>
+</section>
+
+<section class="ab" id="about">
+<div class="p p8 r"><i></i></div>
+<div><div class="lbl r">THE STANDARD</div>
+<h2 class="disp"><span class="m"><span>More than</span></span><span class="m"><span>a clean car.</span></span></h2>
+<p class="r">At All Star Auto Detailing, every vehicle receives meticulous attention to detail. From paint correction and polishing to ceramic protection and interior care, our goal is simple — deliver a finish that looks exceptional and lasts.</p></div>
+</section>
+
+<section class="pr" id="process">
+<div class="lbl r" style="color:var(--ti)">THE EXPERIENCE</div>
+<h2 class="disp"><span class="m"><span>From first look</span></span><span class="m"><span>to final shine.</span></span></h2>
+<div class="steps">
+<div class="st r"><b>01</b><span>CONSULTATION</span></div><div class="st r"><b>02</b><span>PREPARATION</span></div><div class="st r"><b>03</b><span>DETAILING</span></div><div class="st r"><b>04</b><span>FINAL INSPECTION</span></div><div class="st r"><b>05</b><span>DELIVERY</span></div>
+</div></section>
+
+<section class="cta">
+<h2 class="disp"><span class="m"><span>Ready for</span></span><span class="m"><span>the all star</span></span><span class="m"><span>finish?</span></span></h2>
+<p class="r">Your vehicle deserves more than an ordinary detail.</p>
+<a class="btn r" href="#contact">DM FOR YOUR FREE QUOTE →</a>
+</section>
+
+<section class="ct" id="contact">
+<div><div class="lbl r">CONTACT</div>
+<h2 class="disp"><span class="m"><span>Let's talk</span></span><span class="m"><span>about your</span></span><span class="m"><span>vehicle.</span></span></h2>
+<div class="dl r"><span class="lbl">LOCATION</span><span>Houston, TX</span></div>
+<div class="dl r"><span class="lbl">SERVICES</span><span>Auto Detailing<br>Paint Correction<br>Ceramic Coating<br>Waxing<br>Stain Removal<br>Polishing<br>And more</span></div>
+<div class="dl r" style="border-bottom:1px solid rgba(11,12,13,.2)"><span class="lbl">CONTACT</span><span>DM for your free quote</span></div></div>
+<div class="qf r"><div class="lbl">START YOUR QUOTE</div>
+<div class="chips" id="ch"><button>Paint Correction</button><button>Ceramic Coating</button><button>Auto Detailing</button><button>Polishing</button><button>Waxing</button><button>Stain Removal</button></div>
+<input id="car" placeholder="YOUR VEHICLE (YEAR, MAKE, MODEL)" aria-label="Vehicle">
+<button class="btn" id="dm">DM FOR YOUR FREE QUOTE →</button>
+<small id="hint">Choose your services, then send us a DM — your message is prepared for you.</small></div>
+</section>
+
+<footer class="grain">
+<div class="big disp">All Star<br><em>Auto Detailing</em></div>
+<div class="fr"><span class="lbl" style="color:var(--ti)">HOUSTON, TX</span>
+<div class="fl"><a href="#top">HOME</a><a href="#services">SERVICES</a><a href="#gallery">GALLERY</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a><a href="#" id="ig">INSTAGRAM</a></div>
+<a href="#contact">DM FOR YOUR FREE QUOTE →</a></div>
+</footer>
+
+<script>
+// Add the real Instagram profile URL here (none was supplied).
+const IG="";
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+if(IG){$("#ig").href=IG;$("#ig").target="_blank";$("#dm").dataset.ig=IG}
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.15});
+$$(".r,.m").forEach(e=>io.observe(e));
+// mobile menu
+const mn=$("#mn"),bg=$("#bg");bg.onclick=()=>{mn.classList.toggle("open");bg.textContent=mn.classList.contains("open")?"CLOSE":"MENU"};
+$$("#mn a").forEach(a=>a.onclick=()=>{mn.classList.remove("open");bg.textContent="MENU"});
+// service hover image
+const pk=$("#pk");let tx=0,ty=0,cx=0,cy=0;
+$$(".s").forEach(s=>{s.onmouseenter=()=>{pk.className="peek on "+s.dataset.v};s.onmouseleave=()=>pk.classList.remove("on")});
+addEventListener("mousemove",e=>{tx=e.clientX+50;ty=e.clientY-150});
+(function l(){cx+=(tx-cx)*.09;cy+=(ty-cy)*.09;pk.style.left=cx+"px";pk.style.top=cy+"px";requestAnimationFrame(l)})();
+// parallax
+const ps=$$("[data-s]");let tk=false;
+addEventListener("scroll",()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{ps.forEach(p=>{const r=p.getBoundingClientRect();p.firstElementChild.style.translate="0 "+((r.top+r.height/2-innerHeight/2)*p.dataset.s*-1)+"px"});tk=false})},{passive:true});
+// testimonials (replace placeholders with real client reviews)
+const T=[["The finish was absolutely flawless.","CLIENT NAME","VEHICLE MODEL"],["[Client quote placeholder]","CLIENT NAME","VEHICLE MODEL"],["[Client quote placeholder]","CLIENT NAME","VEHICLE MODEL"]];let ti=0;
+function show(d){const q=$("#qt");q.classList.add("out");setTimeout(()=>{ti=(ti+d+3)%3;const t=T[ti];q.textContent="“"+t[0]+"”";$("#qn").textContent="— "+t[1];$("#qv").textContent=t[2];$("#ci").textContent="0"+(ti+1)+" / 03";q.classList.remove("out")},450)}
+$("#nx").onclick=()=>show(1);$("#pv").onclick=()=>show(-1);
+// quote builder
+$$("#ch button").forEach(b=>b.onclick=()=>b.classList.toggle("on"));
+$("#dm").onclick=async e=>{const sv=$$("#ch .on").map(b=>b.textContent).join(", ")||"a detailing service",c=$("#car").value.trim()||"my vehicle";
+const m=`Hi All Star Auto Detailing! I'd like a free quote for ${sv} on ${c}.`;let ok=false;
+try{await navigator.clipboard.writeText(m);ok=true}catch(_){}
+$("#hint").textContent=(ok?"Message copied — paste it into your DM. ":"")+(IG?"":"Instagram link coming soon.");
+if(IG)window.open(IG,"_blank")}
+</script></body></html>

@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ob: #0b0c0d;
+  --gr: #17191a;
+  --bone: #f2f0eb;
+  --stone: #d9d6cf;
+  --ti: #a7a7a2;
+  --w: #fff;
+  --f: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --pad: clamp(20px, 5vw, 72px);
+  color-scheme: light;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ob: var(--ob);
+  --color-gr: var(--gr);
+  --color-bone: var(--bone);
+  --color-stone: var(--stone);
+  --color-ti: var(--ti);
+  --font-sans: var(--font-archivo);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ob);
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--f);
+  background: var(--ob);
+  color: var(--w);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .m > span,
+  .r {
+    transform: none;
+    opacity: 1;
+  }
 }

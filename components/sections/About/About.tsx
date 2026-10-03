@@ -1,7 +1,9 @@
 "use client";
 
 import type { JSX } from "react";
+import { MediaFill } from "@/components/MediaFill";
 import { useLocale } from "@/context/LocaleContext";
+import { MEDIA } from "@/data/media";
 
 export const About = (): JSX.Element => {
   const { dict } = useLocale();
@@ -9,8 +11,12 @@ export const About = (): JSX.Element => {
 
   return (
     <section className="ab" id="about" aria-labelledby="about-title">
-      <div className="p p8 r">
-        <i aria-hidden="true" />
+      <div className="p has-media r">
+        <MediaFill
+          type="image"
+          src={MEDIA.about}
+          alt={dict.brand.name}
+        />
       </div>
       <div>
         <div className="lbl r">{dict.about.eyebrow}</div>

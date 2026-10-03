@@ -2,12 +2,13 @@
 
 import { useEffect, useRef, useState, type JSX } from "react";
 import { useLocale } from "@/context/LocaleContext";
+import { MEDIA } from "@/data/media";
 
 export const Services = (): JSX.Element => {
   const { dict } = useLocale();
   const [line1, line2] = dict.services.lines;
   const peekRef = useRef<HTMLDivElement>(null);
-  const [activeVisual, setActiveVisual] = useState<string | null>(null);
+  const [activeSrc, setActiveSrc] = useState<string | null>(null);
   const target = useRef({ x: 0, y: 0 });
   const current = useRef({ x: 0, y: 0 });
 
@@ -51,23 +52,34 @@ export const Services = (): JSX.Element => {
       </h2>
 
       <div>
-        {dict.services.items.map((item) => (
-          <div
-            key={item.id}
-            className="s r"
-            onMouseEnter={() => setActiveVisual(item.visual)}
-            onMouseLeave={() => setActiveVisual(null)}
-          >
-            <b>{item.number}</b>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </div>
-        ))}
+        {dict.services.items.map((item) => {
+          const src =
+            MEDIA.services[item.id as keyof typeof MEDIA.services] ??
+            MEDIA.about;
+
+          return (
+            <div
+              key={item.id}
+              className="s r"
+              onMouseEnter={() => setActiveSrc(src)}
+              onMouseLeave={() => setActiveSrc(null)}
+            >
+              <b>{item.number}</b>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          );
+        })}
       </div>
 
       <div
         ref={peekRef}
-        className={`peek${activeVisual ? ` on ${activeVisual}` : ""}`}
+        className={`peek${activeSrc ? " on" : ""}`}
+        style={
+          activeSrc
+            ? { backgroundImage: `url(${activeSrc})` }
+            : undefined
+        }
         aria-hidden="true"
       />
     </section>

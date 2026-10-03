@@ -43,13 +43,20 @@ export type Dictionary = {
     eyebrow: string;
     lines: [string, string];
     note: string;
-    items: Array<{
-      id: string;
-      paint: string;
-      grid: string;
-      meta: string;
-      shift: string;
-    }>;
+    swipe: string;
+    meta: {
+      g1: string;
+      g2: string;
+      g3: string;
+      g4: string;
+      g5: string;
+      g6: string;
+      g7: string;
+      g8: string;
+      g9: string;
+      g10: string;
+      g11: string;
+    };
   };
   testimonials: {
     eyebrow: string;

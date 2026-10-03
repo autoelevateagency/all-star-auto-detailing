@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 
+const DESKTOP_MIN = 641;
+
 export const useParallax = (): void => {
   useEffect(() => {
     const panels = document.querySelectorAll<HTMLElement>("[data-s]");
@@ -11,7 +13,20 @@ export const useParallax = (): void => {
 
     let ticking = false;
 
+    const reset = (): void => {
+      panels.forEach((panel) => {
+        const child = panel.firstElementChild as HTMLElement | null;
+        if (child) {
+          child.style.translate = "0 0";
+        }
+      });
+    };
+
     const onScroll = (): void => {
+      if (window.innerWidth < DESKTOP_MIN) {
+        reset();
+        return;
+      }
       if (ticking) {
         return;
       }
@@ -31,9 +46,21 @@ export const useParallax = (): void => {
       });
     };
 
+    const onResize = (): void => {
+      if (window.innerWidth < DESKTOP_MIN) {
+        reset();
+      } else {
+        onScroll();
+      }
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
     onScroll();
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
 };

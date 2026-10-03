@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState, type JSX } from "react";
+import { useEffect, useRef, useState, type JSX } from "react";
 import { useLocale } from "@/context/LocaleContext";
 import { NAV_LINKS } from "@/lib/constants";
 
 export const Nav = (): JSX.Element => {
   const { dict } = useLocale();
   const [isOpen, setIsOpen] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const lastY = useRef(0);
 
   const closeMenu = (): void => setIsOpen(false);
 
@@ -15,9 +17,40 @@ export const Nav = (): JSX.Element => {
     return () => document.body.classList.remove("menu-open");
   }, [isOpen]);
 
+  useEffect(() => {
+    lastY.current = window.scrollY;
+
+    const onScroll = (): void => {
+      if (isOpen) {
+        setIsHidden(false);
+        lastY.current = window.scrollY;
+        return;
+      }
+
+      const currentY = window.scrollY;
+      const delta = currentY - lastY.current;
+
+      if (currentY < 24) {
+        setIsHidden(false);
+      } else if (delta > 6) {
+        setIsHidden(true);
+      } else if (delta < -6) {
+        setIsHidden(false);
+      }
+
+      lastY.current = currentY;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isOpen]);
+
   return (
     <>
-      <nav className="site-nav" aria-label="Primary">
+      <nav
+        className={`site-nav${isHidden ? " is-hidden" : ""}`}
+        aria-label="Primary"
+      >
         <a href="#top" className="logo" aria-label={dict.nav.ariaLogo}>
           <svg viewBox="0 0 30 24" aria-hidden="true">
             <path
